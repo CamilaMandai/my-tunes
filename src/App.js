@@ -15,6 +15,7 @@ class App extends React.Component {
     disabledButton: true,
     loadingUser: true,
     clickBtnLogin: false,
+    albumId: '',
   };
 
   handleChange = ({ target }) => {
@@ -35,8 +36,12 @@ class App extends React.Component {
     this.setState({ clickBtnLogin: true });
   };
 
+  setId = (id) => {
+    this.setState({ albumId: id });
+  };
+
   render() {
-    const { disabledButton, loadingUser, clickBtnLogin } = this.state;
+    const { disabledButton, loadingUser, clickBtnLogin, albumId } = this.state;
     return (
       <BrowserRouter>
         <Switch>
@@ -60,8 +65,14 @@ class App extends React.Component {
               clicked={ clickBtnLogin }
             /> : <Redirect to="/search" /> }
           </Route>
-          <Route path="/search" render={ () => <Search loadingUser={ loadingUser } /> } />
-          <Route path="/album/:id" component={ Album } />
+          <Route
+            path="/search"
+            render={ () => <Search loadingUser={ loadingUser } setId={ this.setId } /> }
+          />
+          <Route
+            path="/album/:id"
+            render={ (props) => <Album { ...props } albumId={ albumId } /> }
+          />
           <Route path="/favorites" component={ Favorites } />
           <Route exact path="/profile" component={ Profile } />
           <Route path="/profile/edit" component={ ProfileEdit } />
