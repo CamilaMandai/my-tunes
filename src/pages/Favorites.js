@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import MusicCard from './MusicCard';
+// import MusicCard from './MusicCard';
+import FavoriteCard from './FavoriteCard';
 
 class Favorites extends React.Component {
   state = {
@@ -34,7 +35,7 @@ class Favorites extends React.Component {
       <div data-testid="page-favorites">
         <Header />
         <ul>
-          {/* {console.log(savedFavoriteSongs)} */}
+          {/* {console.log(savedFavoriteSongs)}
           {savedFavoriteSongs.map((element, index) => (<MusicCard
             key={ index }
             element={ element }
@@ -42,6 +43,10 @@ class Favorites extends React.Component {
             previewUrl={ element.previewUrl }
             trackId={ element.trackId }
             savedFavorites={ savedFavoriteSongs }
+          />))} */}
+          {savedFavoriteSongs.map((element, index) => (<FavoriteCard
+            key={ index }
+            element={ element }
           />))}
         </ul>
       </div>

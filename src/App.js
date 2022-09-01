@@ -16,13 +16,17 @@ class App extends React.Component {
     disabledButton: true,
     loadingUser: true,
     clickBtnLogin: false,
-    // favoriteSongsList:[],
+    profileIsUpdate: false,
   };
 
   handleChange = ({ target }) => {
     const { name, value } = target;
     const MIN_SIZE = 3;
     this.setState({ [name]: value, disabledButton: (value.length < MIN_SIZE) });
+  };
+
+  handleUpdateProfile = (value) => {
+    this.setState({ profileIsUpdate: value });
   };
 
   Loading = async () => {
@@ -43,7 +47,7 @@ class App extends React.Component {
   // }
 
   render() {
-    const { disabledButton, loadingUser, clickBtnLogin } = this.state;
+    const { disabledButton, loadingUser, clickBtnLogin, profileIsUpdate } = this.state;
     return (
       <BrowserRouter>
         <Switch>
@@ -79,7 +83,11 @@ class App extends React.Component {
           />
           <Route path="/favorites" component={ Favorites } />
           <Route exact path="/profile" component={ Profile } />
-          <Route path="/profile/edit" component={ ProfileEdit } />
+          <Route path="/profile/edit">
+            {!profileIsUpdate ? <ProfileEdit
+              setUpdate={ this.handleUpdateProfile }
+            /> : <Redirect to="/profile" />}
+          </Route>
           <Route path="*" component={ NotFound } />
         </Switch>
       </BrowserRouter>

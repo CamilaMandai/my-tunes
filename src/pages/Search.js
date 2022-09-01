@@ -24,6 +24,7 @@ class Search extends React.Component {
       const { artistName } = this.state;
       // console.log(artistName);
       const artistAlbuns = await searchAlbumsAPI(artistName);
+      // console.log(artistAlbuns);
       if (artistName === 'u2' || artistName === 'U2') {
         this.setState({ isU2: true });
       }
