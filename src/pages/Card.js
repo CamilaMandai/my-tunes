@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 class Card extends React.Component {
   render() {
-    const { albuns, loaded, setId } = this.props;
+    // , setId
+    const { albuns, loaded } = this.props;
     if (!loaded) {
       return <div />;
     }
@@ -31,7 +32,7 @@ class Card extends React.Component {
               <h4>{element.collectionName}</h4>
               <p>{element.artistName}</p>
             </div>
-            {setId(element.collectionId)}
+            {/* {setId(element.collectionId)} */}
           </Link>
         ))}
       </div>

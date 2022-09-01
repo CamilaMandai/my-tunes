@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Header from './Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Card from './Card';
@@ -20,7 +19,7 @@ class Search extends React.Component {
   };
 
   handleClick = () => {
-    this.setState({ loadingSearch: true }, async () => {
+    this.setState({ loadingSearch: true, albumLoaded: false }, async () => {
       const { artistName } = this.state;
       // console.log(artistName);
       const artistAlbuns = await searchAlbumsAPI(artistName);
@@ -36,7 +35,6 @@ class Search extends React.Component {
 
   render() {
     const { disabledBtn, artistName, loadingSearch, albuns, albumLoaded } = this.state;
-    const { setId } = this.props;
     if (loadingSearch) {
       return (
         <div>
@@ -73,7 +71,7 @@ class Search extends React.Component {
           => <span>{element.artistName}</span>)}</div> : <div></div>} */}
         {/* <div>Resultado de álbuns de: {albuns[0].artistName} </div> */}
 
-        <Card albuns={ albuns } loaded={ albumLoaded } setId={ setId } />
+        <Card albuns={ albuns } loaded={ albumLoaded } />
 
         {
           // albuns[0] ?
@@ -90,9 +88,5 @@ class Search extends React.Component {
     );
   }
 }
-
-Search.propTypes = {
-  setId: PropTypes.func,
-}.isRequired;
 
 export default Search;

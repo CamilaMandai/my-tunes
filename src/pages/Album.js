@@ -2,24 +2,27 @@ import React from 'react';
 import Header from './Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   state = {
     musicList: [],
     identity: this.props,
     loading: true,
+    savedFavoriteSongs: [],
   };
 
   async componentDidMount() {
     const { identity } = this.state;
     const { match: { params: { id } } } = identity;
-    // const list = await getMusics('1440862963');
+    const favoriteList = await getFavoriteSongs();
+    // console.log(favoriteList);
     const list = await getMusics(id);
-    this.setState({ musicList: list, loading: false });
+    this.setState({ musicList: list, loading: false, savedFavoriteSongs: favoriteList });
   }
 
   render() {
-    const { musicList, loading } = this.state;
+    const { musicList, loading, savedFavoriteSongs } = this.state;
     if (loading) {
       return (
         <div>
@@ -52,6 +55,7 @@ class Album extends React.Component {
                 trackName={ element.trackName }
                 previewUrl={ element.previewUrl }
                 trackId={ element.trackId }
+                savedFavorites={ savedFavoriteSongs }
               />);
             }
             return null;

@@ -8,6 +8,19 @@ class MusicCard extends React.Component {
     check: false,
   };
 
+  componentDidMount() {
+    const { savedFavorites, trackId } = this.props;
+
+    savedFavorites.map((element) => {
+      // if(index===1){
+      if (element.trackId === trackId) {
+        this.setState({ check: true });
+      }
+      return null;
+      // }
+    });
+  }
+
   handleCheck = async (element) => {
     this.setState({ loading: true });
     await addSong(element);

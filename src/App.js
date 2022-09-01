@@ -8,6 +8,7 @@ import Favorites from './pages/Favorites';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
+// import {getFavoriteSongs} from './services/favoriteSongsAPI';
 
 class App extends React.Component {
   state = {
@@ -15,7 +16,7 @@ class App extends React.Component {
     disabledButton: true,
     loadingUser: true,
     clickBtnLogin: false,
-    albumId: '',
+    // favoriteSongsList:[],
   };
 
   handleChange = ({ target }) => {
@@ -36,12 +37,13 @@ class App extends React.Component {
     this.setState({ clickBtnLogin: true });
   };
 
-  setId = (id) => {
-    this.setState({ albumId: id });
-  };
+  // getSavedFavorites = async () => {
+  //   const favoriteSongs = await getFavoriteSongs();
+  //   this.setState({favoriteSongsList: favoriteSongs});
+  // }
 
   render() {
-    const { disabledButton, loadingUser, clickBtnLogin, albumId } = this.state;
+    const { disabledButton, loadingUser, clickBtnLogin } = this.state;
     return (
       <BrowserRouter>
         <Switch>
@@ -67,11 +69,13 @@ class App extends React.Component {
           </Route>
           <Route
             path="/search"
-            render={ () => <Search loadingUser={ loadingUser } setId={ this.setId } /> }
+            render={ () => <Search loadingUser={ loadingUser } /> }
           />
           <Route
             path="/album/:id"
-            render={ (props) => <Album { ...props } albumId={ albumId } /> }
+            render={ (props) => (<Album
+              { ...props }
+            />) }
           />
           <Route path="/favorites" component={ Favorites } />
           <Route exact path="/profile" component={ Profile } />
