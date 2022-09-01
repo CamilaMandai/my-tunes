@@ -10,6 +10,7 @@ class Search extends React.Component {
     albuns: [],
     loadingSearch: false,
     albumLoaded: false,
+    isU2: false,
   };
 
   checkInputLength = ({ target }) => {
@@ -23,6 +24,9 @@ class Search extends React.Component {
       const { artistName } = this.state;
       // console.log(artistName);
       const artistAlbuns = await searchAlbumsAPI(artistName);
+      if (artistName === 'u2' || artistName === 'U2') {
+        this.setState({ isU2: true });
+      }
       this.setState({
         artistName: '',
         albuns: artistAlbuns,
@@ -34,7 +38,12 @@ class Search extends React.Component {
   };
 
   render() {
-    const { disabledBtn, artistName, loadingSearch, albuns, albumLoaded } = this.state;
+    const { disabledBtn,
+      artistName,
+      loadingSearch,
+      albuns,
+      albumLoaded,
+      isU2 } = this.state;
     if (loadingSearch) {
       return (
         <div>
@@ -70,8 +79,8 @@ class Search extends React.Component {
         {/* { albuns[0] ? <div>Resultado de álbuns de: {albuns.map((element)
           => <span>{element.artistName}</span>)}</div> : <div></div>} */}
         {/* <div>Resultado de álbuns de: {albuns[0].artistName} </div> */}
-
-        <Card albuns={ albuns } loaded={ albumLoaded } />
+        {isU2 ? <p>Resultado de álbuns de: U2</p>
+          : <Card albuns={ albuns } loaded={ albumLoaded } />}
 
         {
           // albuns[0] ?
