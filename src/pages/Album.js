@@ -48,8 +48,10 @@ class Album extends React.Component {
             if (index !== 0) {
               return (<MusicCard
                 key={ index }
+                element={ element }
                 trackName={ element.trackName }
                 previewUrl={ element.previewUrl }
+                trackId={ element.trackId }
               />);
             }
             return null;
