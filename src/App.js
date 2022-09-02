@@ -16,7 +16,7 @@ class App extends React.Component {
     disabledButton: true,
     loadingUser: true,
     clickBtnLogin: false,
-    profileIsUpdate: false,
+    // profileIsUpdate: false,
   };
 
   handleChange = ({ target }) => {
@@ -25,9 +25,9 @@ class App extends React.Component {
     this.setState({ [name]: value, disabledButton: (value.length < MIN_SIZE) });
   };
 
-  handleUpdateProfile = (value) => {
-    this.setState({ profileIsUpdate: value });
-  };
+  // handleUpdateProfile = (value) => {
+  //   this.setState({ profileIsUpdate: value });
+  // };
 
   Loading = async () => {
     await getUser();
@@ -47,7 +47,7 @@ class App extends React.Component {
   // }
 
   render() {
-    const { disabledButton, loadingUser, clickBtnLogin, profileIsUpdate } = this.state;
+    const { disabledButton, loadingUser, clickBtnLogin } = this.state;
     return (
       <BrowserRouter>
         <Switch>
@@ -82,12 +82,23 @@ class App extends React.Component {
             />) }
           />
           <Route path="/favorites" component={ Favorites } />
-          <Route exact path="/profile" component={ Profile } />
-          <Route path="/profile/edit">
+          <Route
+            exact
+            path="/profile"
+            render={ () => (<Profile setUpdateProf={ this.handleUpdateProfile } />) }
+          />
+          {/* <Route path="/profile/edit">
             {!profileIsUpdate ? <ProfileEdit
               setUpdate={ this.handleUpdateProfile }
             /> : <Redirect to="/profile" />}
-          </Route>
+          </Route> */}
+          {/* <Route path="/profile/edit" component={ ProfileEdit } /> */}
+          <Route
+            path="/profile/edit"
+            render={ (props) => (<ProfileEdit
+              { ...props }
+            />) }
+          />
           <Route path="*" component={ NotFound } />
         </Switch>
       </BrowserRouter>

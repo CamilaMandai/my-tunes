@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import { getUser, updateUser } from '../services/userAPI';
+// import { useNavigate } from "react-router-dom";
 
 class ProfileEdit extends React.Component {
   state = {
@@ -10,7 +12,7 @@ class ProfileEdit extends React.Component {
     email: '',
     image: '',
     description: '',
-    isUpdate: this.props,
+    parentProps: this.props,
   };
 
   async componentDidMount() {
@@ -37,9 +39,17 @@ class ProfileEdit extends React.Component {
     this.setState({ [name]: value }, () => this.isFilled());
   };
 
+  redirectProfile = () => {
+    const { parentProps } = this.state;
+    const { history: { push } } = parentProps;
+    push('/profile');
+    // const navigate = useNavigate();
+    // navigate("/profile");
+  };
+
   handleClick = async () => {
-    const { userName, email, description, image, isUpdate } = this.state;
-    const { setUpdate } = isUpdate;
+    const { userName, email, description, image } = this.state;
+    // const { setUpdate } = isUpdate;
     await updateUser({
       name: userName,
       email,
@@ -51,8 +61,9 @@ class ProfileEdit extends React.Component {
       email: '',
       image: '',
       description: '',
+      loading: true,
     });
-    setUpdate(true);
+    this.redirectProfile();
   };
 
   render() {
@@ -69,7 +80,7 @@ class ProfileEdit extends React.Component {
       <div data-testid="page-profile-edit">
         <Header />
         <h2>Editar perfil</h2>
-        <form action="/profile">
+        <form>
 
           <input
             type="text"
@@ -103,14 +114,16 @@ class ProfileEdit extends React.Component {
             onChange={ this.handleChange }
           />
         </form>
-        <button
-          type="button"
-          data-testid="edit-button-save"
-          onClick={ this.handleClick }
-          disabled={ notAllFilled }
-        >
-          Salvar
-        </button>
+        <Link to="/profile">
+          <button
+            type="button"
+            data-testid="edit-button-save"
+            onClick={ this.handleClick }
+            disabled={ notAllFilled }
+          >
+            Salvar
+          </button>
+        </Link>
 
       </div>
     );

@@ -10,18 +10,14 @@ class Card extends React.Component {
       return <div />;
     }
     if (albuns[0] === undefined) {
-      return <p>Nenhum álbum foi encontrado</p>;
+      return (
+        <div>
+          <p>Nenhum álbum foi encontrado</p>
+        </div>
+      );
     }
     return (
       <div>
-        <h3>
-          Resultado de álbuns de:
-          <span>
-            {' '}
-            {albuns[0].artistName}
-            {' '}
-          </span>
-        </h3>
         {albuns.map((element) => (
           <Link key={ element.collectionId } to={ `/album/${element.collectionId}` }>
             <div
@@ -43,6 +39,7 @@ class Card extends React.Component {
 Card.propTypes = {
   albuns: PropTypes.arrayOf,
   loaded: PropTypes.bool,
+  artist: PropTypes.string,
 }.isRequired;
 
 export default Card;

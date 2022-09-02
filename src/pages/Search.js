@@ -10,13 +10,16 @@ class Search extends React.Component {
     albuns: [],
     loadingSearch: false,
     albumLoaded: false,
-    isU2: false,
+    artist: '',
   };
 
   checkInputLength = ({ target }) => {
     const { value, name } = target;
     const MIN_SIZE = 2;
-    this.setState({ [name]: value, disabledBtn: (value.length < MIN_SIZE) });
+    this.setState({
+      [name]: value,
+      disabledBtn: (value.length < MIN_SIZE),
+      artist: value });
   };
 
   handleClick = () => {
@@ -25,9 +28,6 @@ class Search extends React.Component {
       // console.log(artistName);
       const artistAlbuns = await searchAlbumsAPI(artistName);
       // console.log(artistAlbuns);
-      if (artistName === 'u2' || artistName === 'U2') {
-        this.setState({ isU2: true });
-      }
       this.setState({
         artistName: '',
         albuns: artistAlbuns,
@@ -44,7 +44,7 @@ class Search extends React.Component {
       loadingSearch,
       albuns,
       albumLoaded,
-      isU2 } = this.state;
+      artist } = this.state;
     if (loadingSearch) {
       return (
         <div>
@@ -77,23 +77,16 @@ class Search extends React.Component {
         >
           pesquisar
         </button>
-        {/* { albuns[0] ? <div>Resultado de álbuns de: {albuns.map((element)
-          => <span>{element.artistName}</span>)}</div> : <div></div>} */}
-        {/* <div>Resultado de álbuns de: {albuns[0].artistName} </div> */}
-        {isU2 ? <p>Resultado de álbuns de: U2</p>
-          : <Card albuns={ albuns } loaded={ albumLoaded } />}
 
-        {
-          // albuns[0] ?
-          // <div>
-          //   Resultado de álbuns de:
-          //   <Card albuns={ albuns[0].artistName } />
-          //   </div>
-          // : <p>Nenhum álbum foi encontrado</p>
-        }
-        {
-          // albuns[0] ? <div>Resultado de álbuns de: {albuns[0].artistName}</div> : <div></div>
-        }
+        {/* Resultado de álbuns de: - Refatorado com ajuda de Anderson Nunes, que mostra o valor mesmo quando a Api nao retorna nada */}
+        <h3>
+          Resultado de álbuns de:
+          {' '}
+          {artist}
+        </h3>
+
+        <Card albuns={ albuns } loaded={ albumLoaded } />
+
       </div>
     );
   }

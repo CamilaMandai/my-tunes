@@ -10,7 +10,9 @@ class Profile extends React.Component {
   };
 
   async componentDidMount() {
+    // const { setUpdateProf } = this.props;
     const user = await getUser();
+    // setUpdateProf(false);
     // console.log(user);
     this.setState({ loading: false, userProfile: user });
   }
