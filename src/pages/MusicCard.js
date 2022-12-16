@@ -21,8 +21,10 @@ class MusicCard extends React.Component {
     });
   }
 
-  handleCheck = async (element) => {
+  handleCheck = async () => {
     this.setState({ loading: true });
+    const { element } = this.props;
+    console.log(element);
     const { check } = this.state;
     if (check) {
       await removeSong(element);
@@ -34,7 +36,7 @@ class MusicCard extends React.Component {
   };
 
   render() {
-    const { trackName, previewUrl, trackId, element } = this.props;
+    const { trackName, previewUrl, trackId } = this.props;
     const { loading, check } = this.state;
     if (loading) {
       return <p>Carregando...</p>;
@@ -47,9 +49,10 @@ class MusicCard extends React.Component {
             id="favoriteCheck"
             data-testid={ `checkbox-music-${trackId}` }
             type="checkbox"
-            onChange={ () => {
-              this.handleCheck(element);
-            } }
+            // onChange={ () => {
+            //   this.handleCheck(element);
+            // } }
+            onChange={ this.handleCheck }
             checked={ check }
           />
         </label>
