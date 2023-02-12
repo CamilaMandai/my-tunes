@@ -88,6 +88,7 @@ class ProfileEdit extends React.Component {
             data-testid="edit-input-name"
             value={ userName }
             onChange={ this.handleChange }
+            placeholder="Nome"
           />
 
           <input
@@ -96,6 +97,7 @@ class ProfileEdit extends React.Component {
             data-testid="edit-input-email"
             value={ email }
             onChange={ this.handleChange }
+            placeholder="Email"
           />
 
           <input
@@ -104,6 +106,7 @@ class ProfileEdit extends React.Component {
             data-testid="edit-input-description"
             value={ description }
             onChange={ this.handleChange }
+            placeholder="Descrição"
           />
 
           <input
@@ -112,6 +115,7 @@ class ProfileEdit extends React.Component {
             data-testid="edit-input-image"
             value={ image }
             onChange={ this.handleChange }
+            placeholder="Imagem (url)"
           />
         </form>
         <Link to="/profile">

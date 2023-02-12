@@ -14,7 +14,7 @@ class Login extends React.Component {
           <input
             name="userName"
             data-testid="login-name-input"
-            placeholder="Nome do Artista"
+            placeholder="Username"
             onChange={ handleChange }
           />
         </form>
