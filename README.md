@@ -20,5 +20,5 @@ Esta aplicação possui:
 
 A aplicação foi desenvolvida em React com uso de context para criação de variáveis de estado. 
 
-## PAra visualizar a aplicação ##
+## Para rodar a aplicação ##
 Rode o comando **npm install** para instalar as dependências, seguido de **npm start**.
