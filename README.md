@@ -1,4 +1,4 @@
-Aplicação de reprodução de músicas de artistas disponíveis no itunes. Além de reproduzir músicas, cria perfil de pessoa usuário bem como uma lista de músicas favoritas.
+Aplicação de reprodução de músicas de artistas disponíveis no itunes. Além de reproduzir músicas, cria perfil de pessoa usuária bem como uma lista de músicas favoritas.
 
 Esta aplicação possui:
 
