@@ -15,11 +15,9 @@ class Header extends React.Component {
   gettingUser = async () => {
     const user = await getUser();
     this.setState({ user, loading: false });
-    // return user.name;
   };
 
   render() {
-    //   const {loading} = this.state;
     const { user, loading } = this.state;
     const headerComponent = (
       <div>
