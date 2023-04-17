@@ -32,29 +32,31 @@ export default class Login extends Component {
       <div data-testid="page-login" className="login-background">
 
         <div className="circle">
-          <form className="login-form">
-            <div className="logo">
-              <img src={ logo } alt="Logo" />
-            </div>
-            <input
-              type="text"
-              data-testid="login-name-input"
-              name="username"
-              value={ username }
-              onChange={ this.handleChange }
-              placeholder="Qual o seu nome"
-            />
-            <button
-              data-testid="login-submit-button"
-              type="button"
-              onClick={ this.handleClick }
-              disabled={ disabledBtn }
-            >
-              Entrar
+          {loading ? <p className="loading">Carregando...</p>
+            : (
+              <form className="login-form">
+                <div className="logo">
+                  <img src={ logo } alt="Logo" />
+                </div>
+                <input
+                  type="text"
+                  data-testid="login-name-input"
+                  name="username"
+                  value={ username }
+                  onChange={ this.handleChange }
+                  placeholder="Qual o seu nome"
+                />
+                <button
+                  data-testid="login-submit-button"
+                  type="button"
+                  onClick={ this.handleClick }
+                  disabled={ disabledBtn }
+                >
+                  Entrar
 
-            </button>
-          </form>
-          {loading && 'Carregando...'}
+                </button>
+              </form>)}
+
           {loaded && <Redirect to="/search" />}
         </div>
       </div>
