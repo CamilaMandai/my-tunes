@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { getUser, updateUser } from '../services/userAPI';
-// import { useNavigate } from "react-router-dom";
 
 class ProfileEdit extends React.Component {
   state = {
@@ -17,7 +16,6 @@ class ProfileEdit extends React.Component {
 
   async componentDidMount() {
     const user = await getUser();
-    // console.log(user);
     this.setState({
       loading: false,
       userName: user.name,
@@ -43,8 +41,6 @@ class ProfileEdit extends React.Component {
     const { parentProps } = this.state;
     const { history: { push } } = parentProps;
     push('/profile');
-    // const navigate = useNavigate();
-    // navigate("/profile");
   };
 
   handleClick = async () => {
