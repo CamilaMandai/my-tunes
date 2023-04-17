@@ -1,4 +1,4 @@
-Aplicação de reprodução de músicas de artistas disponíveis no itunes. Além de reproduzir músicas, cria perfil de pessoa usuário bem como uma lista de músicas favoritas.
+Aplicação de reprodução de músicas de artistas disponíveis no itunes. Além de reproduzir músicas, cria perfil de pessoa usuária bem como uma lista de músicas favoritas.
 
 Esta aplicação possui:
 
@@ -20,5 +20,5 @@ Esta aplicação possui:
 
 A aplicação foi desenvolvida em React com uso de context para criação de variáveis de estado. 
 
-## PAra visualizar a aplicação ##
+## Para rodar a aplicação ##
 Rode o comando **npm install** para instalar as dependências, seguido de **npm start**.
