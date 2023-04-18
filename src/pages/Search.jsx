@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import AlbumCard from '../components/AlbumCard';
+import '../styles/search.sass';
 
 export default class Search extends Component {
   state = {
@@ -39,8 +40,9 @@ export default class Search extends Component {
     return (
       <div data-testid="page-search">
         <Header />
-        <form>
+        <form className="search">
           <input
+            className="__name"
             type="text"
             data-testid="search-artist-input"
             name="artistName"
@@ -48,6 +50,7 @@ export default class Search extends Component {
             onChange={ this.handleChange }
           />
           <button
+            className="__button"
             type="button"
             data-testid="search-artist-button"
             disabled={ disabledBtn }
@@ -57,16 +60,18 @@ export default class Search extends Component {
 
           </button>
         </form>
-        {loading ? <p>Carregando...</p> : resultado}
-        {
-          albuns.length === 0 ? <p>Nenhum álbum foi encontrado</p>
-            : albuns.map((album, index) => (
-              <AlbumCard
-                key={ index }
-                searchResult={ album }
-              />
-            ))
-        }
+        <div className="albuns">
+          {loading ? <p>Carregando...</p> : resultado}
+          {
+            albuns.length === 0 ? <p>Nenhum álbum foi encontrado</p>
+              : albuns.map((album, index) => (
+                <AlbumCard
+                  key={ index }
+                  searchResult={ album }
+                />
+              ))
+          }
+        </div>
       </div>
     );
   }
