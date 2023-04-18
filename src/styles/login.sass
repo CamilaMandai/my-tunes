@@ -1,0 +1,57 @@
+@import "variables.sass"
+
+.login-background
+  background: linear-gradient(123.66deg, $primary-color 12.08%, $secondary-color 86.52%)
+  height: 100vh
+  font-family: $primary-font
+  width: 100%
+
+.circle
+  background-image: url('../images/loginPatterns.png')
+  background-repeat:round
+  position: absolute
+  margin: 0
+  padding: 0
+  width: 100%
+  height: 100%
+
+
+.loading
+  font-size: 2rem
+  color: white
+  margin: 20% auto
+
+
+.login-form
+  background-color: aliceblue
+  width: 40%
+  height: 350px
+  border-radius: 10px
+  margin: 10% auto
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+
+.login-form input, button
+  border: 1px solid $primary-color
+  line-height: 40px
+  width: 40%
+  margin-bottom: 20px
+  border-radius: 20px
+  text-align: center
+  color: $primary-color
+
+
+.login-form input::placeholder
+  color: $primary-color
+
+
+.login-form button
+  background-color: $primary-color
+  color: white
+
+
+.logo
+  margin-bottom: 20px

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
-import '../styles/login.scss';
+import '../styles/login.sass';
 import logo from '../images/logo.png';
 
 export default class Login extends Component {
