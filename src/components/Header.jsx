@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
+import '../styles/navbar.sass';
+import logo from '../images/logo.png';
 
 class Header extends React.Component {
   state = {
@@ -20,8 +22,10 @@ class Header extends React.Component {
   render() {
     const { user, loading } = this.state;
     const headerComponent = (
-      <div>
-        <p data-testid="header-user-name">{user.name}</p>
+      <div className="nav-bar">
+        <Link to="/search" className="logo-nav">
+          <img className="logo" src={ logo } alt="logo" />
+        </Link>
         <ul>
           <Link to="/search">
             <li data-testid="link-to-search"> Pesquisar </li>
@@ -33,6 +37,10 @@ class Header extends React.Component {
             <li data-testid="link-to-profile"> Perfil </li>
           </Link>
         </ul>
+        <div className="profile-info">
+          <img src={ user.image } alt="user" />
+          <p data-testid="header-user-name">{user.name}</p>
+        </div>
       </div>
     );
     return (

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import { getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import MusicCard from '../components/MusicCard';
+import '../styles/favorites.sass';
 
 export default class Favorites extends Component {
   state = {
@@ -24,15 +25,19 @@ export default class Favorites extends Component {
     return (
       <div data-testid="page-favorites">
         <Header />
-        {
-          favoriteList.map((music, index) => (<MusicCard
-            key={ index }
-            song={ music }
-            isFavorite={ favoriteList.some((song) => song.trackName === music.trackName) }
-            removeSong={ this.removeFavorite }
-          />
-          ))
-        }
+        <div className="favorites">
+          {
+            favoriteList.map((music, index) => (<MusicCard
+              key={ index }
+              song={ music }
+              isFavorite={
+                favoriteList.some((song) => song.trackName === music.trackName) 
+              }
+              removeSong={ this.removeFavorite }
+            />
+            ))
+          }
+        </div>
       </div>
     );
   }

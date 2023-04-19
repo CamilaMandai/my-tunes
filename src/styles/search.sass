@@ -1,0 +1,48 @@
+@import 'variables'
+
+.search 
+  position: fixed
+  left: 20%
+  width: 80%
+  display: flex
+  justify-content: center
+  align-items: center
+  background-image: url('../images/searchbg.png')
+  background-repeat: round
+  object-fit: cover
+  margin: 0
+  padding: 0
+  height: 180px
+  z-index: 0
+  font-family: $primary-font
+
+.__name
+  border-radius: 50px
+  border: none
+  line-height: 30px
+  width: 20%
+  background: transparentize(white, 0.6)
+  margin-right:20px
+  padding: 0 20px
+
+.__name:focus
+  outline: none
+
+
+.__button
+  border-radius: 50px
+  border: none
+  line-height: 30px
+  background-color: $secondary-color   
+  width:100px
+  color: white 
+
+.albuns
+  background-color: $primary-bg-color
+  position: absolute
+  padding: 30px
+  top: 180px
+  left: 20%
+  z-index: -1
+  width:80%  
+  font-family: $primary-font
