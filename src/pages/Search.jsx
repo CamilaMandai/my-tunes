@@ -48,6 +48,7 @@ export default class Search extends Component {
             name="artistName"
             value={ artistName }
             onChange={ this.handleChange }
+            placeholder="nome de um artista ou banda"
           />
           <button
             className="__button"
@@ -61,15 +62,20 @@ export default class Search extends Component {
           </button>
         </form>
         <div className="albuns">
-          {loading ? <p>Carregando...</p> : resultado}
+          {loading && <p>Carregando...</p>}
           {
-            albuns.length === 0 ? <p>Nenhum álbum foi encontrado</p>
-              : albuns.map((album, index) => (
-                <AlbumCard
-                  key={ index }
-                  searchResult={ album }
-                />
-              ))
+            albuns.length === 0 && artist ? <p>Nenhum álbum foi encontrado</p>
+              : (
+                <div>
+                  { albuns.length > 0 && resultado }
+                  {albuns.map((album, index) => (
+                    <AlbumCard
+                      key={ index }
+                      searchResult={ album }
+                    />
+                  ))}
+                </div>
+              )
           }
         </div>
       </div>
