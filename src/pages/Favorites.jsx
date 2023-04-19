@@ -24,7 +24,7 @@ export default class Favorites extends Component {
     const { favoriteList } = this.state;
     return (
       <div data-testid="page-favorites">
-        <Header />
+        <Header page="favorites" />
         <div className="favorites">
           {
             favoriteList.map((music, index) => (<MusicCard
