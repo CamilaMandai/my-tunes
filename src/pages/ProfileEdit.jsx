@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { getUser, updateUser } from '../services/userAPI';
+import '../styles/profile.sass';
 
 class ProfileEdit extends React.Component {
   state = {
@@ -75,56 +76,70 @@ class ProfileEdit extends React.Component {
     return (
       <div data-testid="page-profile-edit">
         <Header />
-        <h2>Editar perfil</h2>
-        <form>
+        <div className="profile edit-profile">
+          <h2>Editar perfil</h2>
+          <form>
+            <img src={ image } alt="profile" />
+            <label htmlFor="image">
+              Url da imagem:
+              <input
+                type="text"
+                name="image"
+                data-testid="edit-input-image"
+                value={ image }
+                onChange={ this.handleChange }
+                placeholder="Imagem (url)"
+              />
+            </label>
+            <label htmlFor="name">
+              Nome:
+              <input
+                type="text"
+                name="userName"
+                data-testid="edit-input-name"
+                value={ userName }
+                onChange={ this.handleChange }
+                placeholder="Nome"
+              />
+            </label>
+            <label htmlFor="email">
+              Email:
+              <input
+                type="email"
+                name="email"
+                data-testid="edit-input-email"
+                value={ email }
+                onChange={ this.handleChange }
+                placeholder="Email"
+              />
+            </label>
+            <label htmlFor="description">
+              Descrição:
+              {' '}
 
-          <input
-            type="text"
-            name="userName"
-            data-testid="edit-input-name"
-            value={ userName }
-            onChange={ this.handleChange }
-            placeholder="Nome"
-          />
+            </label>
+            <textarea
+              rows="5"
+              cols="33"
+              name="description"
+              data-testid="edit-input-description"
+              value={ description }
+              onChange={ this.handleChange }
+              placeholder="Descrição"
+            />
+          </form>
+          <Link to="/profile">
+            <button
+              type="button"
+              data-testid="edit-button-save"
+              onClick={ this.handleClick }
+              disabled={ notAllFilled }
+            >
+              Salvar
+            </button>
+          </Link>
 
-          <input
-            type="email"
-            name="email"
-            data-testid="edit-input-email"
-            value={ email }
-            onChange={ this.handleChange }
-            placeholder="Email"
-          />
-
-          <input
-            type="textarea"
-            name="description"
-            data-testid="edit-input-description"
-            value={ description }
-            onChange={ this.handleChange }
-            placeholder="Descrição"
-          />
-
-          <input
-            type="text"
-            name="image"
-            data-testid="edit-input-image"
-            value={ image }
-            onChange={ this.handleChange }
-            placeholder="Imagem (url)"
-          />
-        </form>
-        <Link to="/profile">
-          <button
-            type="button"
-            data-testid="edit-button-save"
-            onClick={ this.handleClick }
-            disabled={ notAllFilled }
-          >
-            Salvar
-          </button>
-        </Link>
-
+        </div>
       </div>
     );
   }

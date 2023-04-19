@@ -1,0 +1,48 @@
+@import 'variables'
+
+.profile
+  background-color: $primary-bg-color
+  position: absolute
+  padding: 30px
+  left: 20%
+  z-index: -1
+  width:80%  
+  font-family: $primary-font
+  display: flex
+
+.profile img 
+  margin-right: 2rem
+  border-radius: 100%
+
+.edit-profile
+  flex-direction: column
+
+.edit-profile form input, .edit-profile textarea
+  display: block
+  font-family: $primary-font
+  padding: 10px
+  margin: 10px 0
+  border: none
+  outline: none
+
+.edit-profile label
+  font-weight: bold
+  display: block
+  margin-top: 20px
+
+.edit-profile button
+  border-radius: 50px
+  border: none
+  line-height: 30px
+  background-color: $secondary-color   
+  width:20%
+  padding: 10px
+  font-size: 1.2rem
+  margin-top: 20px
+  color: white 
+
+.edit-profile button:disabled
+  background-color: $disabled-button
+
+.edit-profile img
+  width: 10%

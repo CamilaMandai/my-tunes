@@ -23,7 +23,9 @@ class Header extends React.Component {
     const { user, loading } = this.state;
     const headerComponent = (
       <div className="nav-bar">
-        <img className="logo" src={ logo } alt="logo" />
+        <Link to="/search" className="logo-nav">
+          <img className="logo" src={ logo } alt="logo" />
+        </Link>
         <ul>
           <Link to="/search">
             <li data-testid="link-to-search"> Pesquisar </li>

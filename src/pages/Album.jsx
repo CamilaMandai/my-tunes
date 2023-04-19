@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import '../styles/album.sass';
 
 export default class Album extends Component {
   state = {
@@ -37,17 +38,21 @@ export default class Album extends Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <h3 data-testid="artist-name">{artist}</h3>
-        <h3 data-testid="album-name">{album}</h3>
-        {
-          musicList.map((music, index) => (<MusicCard
-            key={ index }
-            song={ music }
-            isFavorite={ favoriteList.some((song) => song.trackName === music.trackName) }
-            removeSong={ this.removeFavorite }
-          />
-          ))
-        }
+        <div className="album-songs">
+          <h3 data-testid="artist-name">{artist}</h3>
+          <h3 data-testid="album-name">{album}</h3>
+          {
+            musicList.map((music, index) => (<MusicCard
+              key={ index }
+              song={ music }
+              isFavorite={
+                favoriteList.some((song) => song.trackName === music.trackName) 
+              }
+              removeSong={ this.removeFavorite }
+            />
+            ))
+          }
+        </div>
       </div>
     );
   }
