@@ -19,7 +19,7 @@ export default class Profile extends Component {
     const { user, loading } = this.state;
     return (
       <div data-testid="page-profile">
-        <Header />
+        <Header page="profile" />
         <div className="profile">
           {loading && <p>Carregando...</p>}
           <div>

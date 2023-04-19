@@ -37,7 +37,7 @@ export default class Album extends Component {
     const { musicList, artist, album, favoriteList } = this.state;
     return (
       <div data-testid="page-album">
-        <Header />
+        <Header page="" />
         <div className="album-songs">
           <h3 data-testid="artist-name">{artist}</h3>
           <h3 data-testid="album-name">{album}</h3>

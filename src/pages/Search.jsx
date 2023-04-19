@@ -39,7 +39,7 @@ export default class Search extends Component {
 
     return (
       <div data-testid="page-search">
-        <Header />
+        <Header page="pesquisar" />
         <form className="search">
           <input
             className="__name"

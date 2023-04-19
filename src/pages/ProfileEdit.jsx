@@ -75,7 +75,7 @@ class ProfileEdit extends React.Component {
     }
     return (
       <div data-testid="page-profile-edit">
-        <Header />
+        <Header page="" />
         <div className="profile edit-profile">
           <h2>Editar perfil</h2>
           <form>
