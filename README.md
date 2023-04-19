@@ -14,13 +14,13 @@ Esta aplicação possui:
 
 5 - Reprodução de prévia das músicas do álbum;
 
-6 - Adição e remoção de músicas na lisat de favoritos;
+6 - Adição e remoção de músicas na lista de favoritos;
 
 7 - Página com lista de músicas favoritas com possibilidade de reprodução de prévia das músicas;
 
-8 - Página de visualização de perfil e outra e edição de perfil.
+8 - Página de visualização de perfil e outra de edição de perfil.
 
 A aplicação foi desenvolvida em React. 
 
 ## Para rodar a aplicação ##
-Rode o comando **npm install** para instalar as dependências, seguido de **npm start**.
+Rode o comando **npm install** para instalar as dependências, seguido de **npm start** para iniciar e abrir a aplicação no navegador
