@@ -8,14 +8,13 @@ class AlbumCard extends Component {
     const { artistName, collectionName, artworkUrl100, collectionId } = searchResult;
     return (
       <div>
-        <img src={ artworkUrl100 } alt={ collectionName } />
-        <h3>{collectionName}</h3>
-        <h4>{artistName}</h4>
         <Link
           data-testid={ `link-to-album-${collectionId}` }
           to={ `/album/${collectionId}` }
         >
-          Acesse aqui
+          <img src={ artworkUrl100 } alt={ collectionName } />
+          <h3>{collectionName}</h3>
+          <h4>{artistName}</h4>
         </Link>
       </div>
     );
