@@ -12,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <Switch>
-        <Route path="/my-tunes" component={ Login } />
+        <Route path="/my-tunes" exact component={ Login } />
         <Route path="/my-tunes/search" component={ Search } />
         <Route path="/my-tunes/album/:id" component={ Album } />
         <Route path="/my-tunes/favorites" component={ Favorites } />
