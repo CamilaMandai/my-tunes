@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/my-tunes/static/css/main.5041c4af.css",
+    "main.js": "/my-tunes/static/js/main.17d5998e.js",
+    "static/media/searchbg.png": "/my-tunes/static/media/searchbg.523803e84f8a3a6b181d.png",
+    "static/media/loginPatterns.png": "/my-tunes/static/media/loginPatterns.48f9d26b7e3a17a01bf4.png",
+    "index.html": "/my-tunes/index.html",
+    "main.5041c4af.css.map": "/my-tunes/static/css/main.5041c4af.css.map",
+    "main.17d5998e.js.map": "/my-tunes/static/js/main.17d5998e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5041c4af.css",
+    "static/js/main.17d5998e.js"
+  ]
+}
