@@ -46,7 +46,7 @@ export default class Album extends Component {
               key={ index }
               song={ music }
               isFavorite={
-                favoriteList.some((song) => song.trackName === music.trackName) 
+                favoriteList.some((song) => song.trackName === music.trackName)
               }
               removeSong={ this.removeFavorite }
             />

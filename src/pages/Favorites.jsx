@@ -31,7 +31,7 @@ export default class Favorites extends Component {
               key={ index }
               song={ music }
               isFavorite={
-                favoriteList.some((song) => song.trackName === music.trackName) 
+                favoriteList.some((song) => song.trackName === music.trackName)
               }
               removeSong={ this.removeFavorite }
             />
