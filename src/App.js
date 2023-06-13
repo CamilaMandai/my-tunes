@@ -12,12 +12,12 @@ class App extends React.Component {
   render() {
     return (
       <Switch>
-        <Route path="/" exact component={ Login } />
-        <Route path="/search" component={ Search } />
-        <Route path="/album/:id" component={ Album } />
-        <Route path="/favorites" component={ Favorites } />
-        <Route path="/profile" exact component={ Profile } />
-        <Route path="/profile/edit" component={ ProfileEdit } />
+        <Route path="/gh-pages-url" exact component={ Login } />
+        <Route path="/gh-pages-url/search" component={ Search } />
+        <Route path="/gh-pages-url/album/:id" component={ Album } />
+        <Route path="/gh-pages-url/favorites" component={ Favorites } />
+        <Route path="/gh-pages-url/profile" exact component={ Profile } />
+        <Route path="/gh-pages-url/profile/edit" component={ ProfileEdit } />
         <Route path="*" component={ NotFound } />
       </Switch>
     );
